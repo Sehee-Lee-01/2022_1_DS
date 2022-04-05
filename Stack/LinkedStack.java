@@ -1,0 +1,1 @@
+class LStack<E>
