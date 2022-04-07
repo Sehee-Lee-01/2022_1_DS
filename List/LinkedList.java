@@ -1,41 +1,16 @@
-class LinkedList<E> implements List<E> {
-    private Link<E> head, tail;
+public class LinkedList<E> implements List<E> {
+    Link<E> head, tail;
     int size;
-        
+    
+    // 생성자    
     public LinkedList() {
         head = tail = new Link<>(null, null);
         size = 0;
     }
     
-    @Override
     public void clear() {
         head.setNext(null);
         size = 0;
-    }
-    
-    @Override
-    public void update(int pos, E item) {
-        Link<E> curr = head;
-        for(int i=0; i<pos; i++) curr = curr.next();
-        curr.next().setItem(item);
-    }
-    
-    @Override
-    public E getValue(int pos) {
-        Link<E> curr = head;
-        for(int i=0; i<pos; i++) curr = curr.next();
-        return curr.next().item();
-    }
-    
-    @Override
-    public int length() {
-        return size;
-    }
-    
-    @Override
-    public void append() {
-        tail = tail.setNext(new Link<>(item, null));
-        size++;
     }
     
     public void insert (int pos, E item) {
@@ -48,6 +23,23 @@ class LinkedList<E> implements List<E> {
             tail = curr.next();
         
         size++;
+    }
+    
+    public void append(E item) {
+        tail = tail.setNext(new Link<>(item, null));
+        size++;
+    }
+    
+    public void update(int pos, E item) {
+        Link<E> curr = head;
+        for(int i=0; i<pos; i++) curr = curr.next();
+        curr.next().setItem(item);
+    }
+    
+    public E getValue(int pos) {
+        Link<E> curr = head;
+        for(int i=0; i<pos; i++) curr = curr.next();
+        return curr.next().item();
     }
     
     public E remove (int pos) {
@@ -65,6 +57,36 @@ class LinkedList<E> implements List<E> {
         size--;
         
         return ret;
+    }
+       
+    public int length() {
+        return size;
+    }
+    
+    public String toString(){
+        String a = "";
+        Link<E> curr = head;
+        for (int i=0; i<size; i++){
+            a += curr.next.item+", ";
+            curr = curr.next;
+        }
+        
+        return a;
+    }
+    
+    // 출력할 때 
+    public static void main(String[] args){
+        List<Integer> myList = new LinkedList<>();
+        
+        myList.append(3);
+        myList.insert(0,1);
+        myList.insert(0,4);
+        myList.append(10);
+        myList.insert(1,5);
+        System.out.println(myList);
+        System.out.println(myList.length());
+
+        
     }
     
 }
