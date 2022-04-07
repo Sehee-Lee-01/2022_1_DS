@@ -74,6 +74,29 @@ public class LinkedList<E> implements List<E> {
         return a;
     }
     
+    public ListIterator<E> listIterator() {
+        return new ListIterator<E>() {
+            Link<E> curr = head;
+            public boolean hasNext() {return curr != tail;}
+                        
+            public E next() {
+                curr = curr.next();
+                return curr.item();
+            }
+            
+            public boolean hasPrevious() {return curr != head;}
+            
+            public E previous() {
+                Link<E> prev = head;
+                while(prev.next() != curr){
+                    prev = prev.next();
+                }
+                curr = prev;
+                return curr.next().item();
+            }
+        };
+    }
+    
     // 출력할 때 
     public static void main(String[] args){
         List<Integer> myList = new LinkedList<>();

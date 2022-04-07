@@ -71,4 +71,19 @@ public class ArrayList<E> implements List<E> {
         
     }
 
+    public ListIterator<E> listIterator() {
+        return new ListIterator<E>() {
+            int pos = 0;
+            
+            public boolean hasNext() {return pos < size;}
+            
+            public E next() {return data[pos++];}
+            
+            public boolean hasPrevious() {return pos>0;}
+            
+            public E previous() {return data[--pos];}
+        };
+    }
+
+    
 }
