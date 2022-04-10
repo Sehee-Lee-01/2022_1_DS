@@ -1,6 +1,6 @@
 class DLink<E> {
     private E item;
-    private DLink<E> nwxt;
+    private DLink<E> next;
     private DLink<E> prev;
     // 생성자
     DLink(E item, DLink<E> prev, DLink<E> next) {

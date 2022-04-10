@@ -108,8 +108,6 @@ public class LinkedList<E> implements List<E> {
         myList.insert(1,5);
         System.out.println(myList);
         System.out.println(myList.length());
-
-        
     }
     
 }

@@ -7,8 +7,9 @@ public class DoublyLinkedList<E> implements LinkedList<E> {
     int size;
     
     // 생성자
-     public DoublyLinkedList() {
-        head = tail = new DLink<>(null, null);
+    public DoublyLinkedList() {
+        head = new DLink<>(null, null, tail);
+        tail = new DLink<>(null, head, null);
         size = 0;
     }
     
@@ -22,22 +23,22 @@ public class DoublyLinkedList<E> implements LinkedList<E> {
     // insert
     public void insert(int pos, E item){
         DLink<E> curr = head;
-        for (int i=0; i<pos; i++){
-            curr = curr.next();
-        };
+        for(int i=0; i < pos; i++) {curr = curr.next();}
+        
         curr.setNext(new DLink<E>(item, curr, curr.next()));
         curr.next().next().setPrev(curr.next());
         size++;
     }
-    
+
     public void append(E item) {
-        tail = tail.setNext(new DLink<>(item, null));
+        tail.prev().setNext(new DLink<>(item, tail.prev(), tail));
+        tail.setPrev(tail.prev().next());
         size++;
     }
     
     public void update(int pos, E item) {
         DLink<E> curr = head;
-        for(int i=0; i<pos; i++) curr = curr.next();
+        for(int i=0; i < pos; i++) {curr = curr.next();}
         curr.next().setItem(item);
     }
     
@@ -46,6 +47,7 @@ public class DoublyLinkedList<E> implements LinkedList<E> {
         for(int i=0; i<pos; i++) curr = curr.next();
         return curr.next().item();
     }
+    
     // remove
     public E remove(int pos) {
         DLink<E> curr = head;
@@ -63,7 +65,7 @@ public class DoublyLinkedList<E> implements LinkedList<E> {
         return size;
     }
     
-    // 실행할 때 포함하기
+    // ***
     public ListIterator<E> listIterator() {
         return new ListIterator<E>() {
             DLink<E> curr = head;
@@ -85,5 +87,22 @@ public class DoublyLinkedList<E> implements LinkedList<E> {
                 return curr.next().item();
             }
         };
+    }
+    
+    // test 추후 TestAll.java로 이동
+    public static void main(String[] args){
+        
+        DoublyLinkedList<Integer> myList = new DoublyLinkedList<>();
+        myList.insert();
+        System.out.println(Arrays.toString(myList.data));
+        myList.append();
+        System.out.println(Arrays.toString(myList.data));
+        myList.insert();
+        System.out.println(Arrays.toString(myList.data));
+        myList.remove();
+        System.out.println(Arrays.toString(myList.data));
+        
+        System.out.println(myList.length());
+        
     }
 }
