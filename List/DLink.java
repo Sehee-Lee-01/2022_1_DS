@@ -1,7 +1,7 @@
 class DLink<E> {
-    private E item;
-    private DLink<E> next;
-    private DLink<E> prev;
+    E item;
+    DLink<E> next;
+    DLink<E> prev;
     // 생성자
     DLink(E item, DLink<E> prev, DLink<E> next) {
         this.item = item;

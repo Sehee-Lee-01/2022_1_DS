@@ -10,5 +10,5 @@ public interface Queue<E> {
     
     public E rear();
     
-    public int lengrh();    
+    public int length();    
 }

@@ -2,12 +2,12 @@
 //ListIterator를 포함하여 
 //Doubly Linked List를 구현하세요.
 
-public class DoublyLinkedList<E> implements LinkedList<E> {
+public class DList<E> implements List<E> {
     DLink<E> head, tail;
     int size;
     
     // 생성자
-    public DoublyLinkedList() {
+    public DList() {
         head = new DLink<>(null, null, tail);
         tail = new DLink<>(null, head, null);
         size = 0;
@@ -69,7 +69,7 @@ public class DoublyLinkedList<E> implements LinkedList<E> {
     public ListIterator<E> listIterator() {
         return new ListIterator<E>() {
             DLink<E> curr = head;
-            public boolean hasNext() {return curr != tail;}
+            public boolean hasNext() {return curr.next() != tail;}
                         
             public E next() {
                 curr = curr.next();
@@ -89,20 +89,15 @@ public class DoublyLinkedList<E> implements LinkedList<E> {
         };
     }
     
-    // test 추후 TestAll.java로 이동
-    public static void main(String[] args){
+    public String toString(){
+        String a = "";
+        DLink<E> curr = head;
+        for (int i=0; i<size; i++){
+            a += curr.next.item+", ";
+            curr = curr.next;
+        }
         
-        DoublyLinkedList<Integer> myList = new DoublyLinkedList<>();
-        myList.insert();
-        System.out.println(Arrays.toString(myList.data));
-        myList.append();
-        System.out.println(Arrays.toString(myList.data));
-        myList.insert();
-        System.out.println(Arrays.toString(myList.data));
-        myList.remove();
-        System.out.println(Arrays.toString(myList.data));
-        
-        System.out.println(myList.length());
-        
+        return a;
     }
+    
 }

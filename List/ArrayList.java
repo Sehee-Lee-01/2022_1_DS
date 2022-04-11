@@ -74,7 +74,7 @@ public class ArrayList<E> implements List<E> {
         ArrayList<Integer> myList = new ArrayList<>();
         myList.append(3);
         System.out.println(Arrays.toString(myList.data));
-        myList.append(5);
+        myList.clear();
         System.out.println(Arrays.toString(myList.data));
         myList.insert(0,10);
         System.out.println(Arrays.toString(myList.data));
