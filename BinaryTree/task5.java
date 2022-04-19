@@ -1,0 +1,1 @@
+//(task 5) BinNode를 상속하여 LNode를 구현하세요. LNode는 양쪽 자식이 모두 없는 Leaf node만을 위한 구현입니다.
