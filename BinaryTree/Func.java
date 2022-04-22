@@ -1,1 +1,0 @@
-//(task 4) preorder, inorder, postorder traversal을 수행하는 함수를 구현하고, 함수를 수행한 결과를 확인하세요.

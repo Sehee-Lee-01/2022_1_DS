@@ -1,1 +1,0 @@
-//(task 6) task 3에서 구현한 tree에서 leaf node를 기존 INode에서 LNode로 교체하고, task 5를 수행하여 기존 결과와 동일함을 확인하세요.
