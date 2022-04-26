@@ -26,6 +26,14 @@ public class INode<E> implements BinNode<E> {
         return r;        
     };
     
+    public void setLeft(BinNode<E> n){
+        this.l =n;
+    }
+    
+    public void setRight(BinNode<E> n){
+        this.r = n;
+    }
+    
     public boolean isLeaf(){
         return l == null && r == null;
     };

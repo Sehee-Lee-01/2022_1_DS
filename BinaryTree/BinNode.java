@@ -4,5 +4,7 @@ public interface BinNode<E> {
     public E setElement(E item);
     public BinNode<E> left();
     public BinNode<E> right();
+    public void setLeft(BinNode<E> n);
+    public void setRight(BinNode<E> n);
     public boolean isLeaf();    
 }
