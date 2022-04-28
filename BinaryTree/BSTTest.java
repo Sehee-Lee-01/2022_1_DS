@@ -7,6 +7,8 @@ public class BSTTest {
         bst.insert(5, "c");
         bst.insert(2, "d");
         
+        bst.remove(3);
+        
         System.out.println(bst.find(2));
         System.out.println(bst.find(5));
         System.out.println(bst.find(3));
