@@ -38,7 +38,7 @@ public class BST<K extends Comparable, E> implements Dictionary<K, E> {
     public BinNode<Entry> insert_helper(K k, E e, BinNode<Entry> rt){
         // 루트가 없을 때 새로 노드 생성
         if (rt == null){
-            return new INode<>(new Entry(k, e), null, null);
+            return new LNode<>(new Entry(k, e));
         }
         // 이미 있는 것을 새롭게 교체
         // 루트 키 == insert 키 
@@ -47,12 +47,19 @@ public class BST<K extends Comparable, E> implements Dictionary<K, E> {
             rt.element().element = e;
         }
         // 루트 키 < insert 키, 끝까지 맞는 곳을 찾아간다.
+        
         else if (rt.element().key.compareTo(k) < 0){
-            rt.setRight(insert_helper(k, e, rt.right()));
+            if(rt instanceof LNode){
+                rt = new INode<>(rt.element(), null,new LNode<>(new Entry(k, e)));
+            }
+            else {rt.setRight(insert_helper(k, e, rt.right()));}
         }
         // 루트 키 > insert 키, 끝까지 맞는 곳을 찾아간다.
         else{
-            rt.setLeft(insert_helper(k, e, rt.left()));
+            if(rt instanceof LNode){
+                rt = new INode<>(rt.element(), new LNode<>(new Entry(k, e)),null);
+            } 
+            else {rt.setLeft(insert_helper(k, e, rt.left()));}
         }
         return rt;
     }
@@ -83,7 +90,7 @@ public class BST<K extends Comparable, E> implements Dictionary<K, E> {
             if (rt.left() == null){
                 // 해당 키 값 오른쪽도 null 일 경우
                 if (rt.right() == null){
-                    return rt;
+                    return rt = new LNode<Entry>(rt.element());
                 } else {
                     return rt.right();    
                 }                            
@@ -166,7 +173,6 @@ public class BST<K extends Comparable, E> implements Dictionary<K, E> {
     private <Entry> void inorder(BinNode<Entry> rt) {
         if (rt == null) return;
         inorder(rt.left());
-        //*********
         System.out.print(rt);
         inorder(rt.right()); 
     }
