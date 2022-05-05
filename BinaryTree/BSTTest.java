@@ -1,5 +1,5 @@
-// (task 3) 구현한 BST가 올바르게 동작하는지 확인해보세요.
-// (task 4) BST에 10개 이상의 노드를 넣어보고, root에서부터 inorder traversal을 수행한 결과를 출력해보세요.
+// (task 3) 구현한 BST가 올바르게 동작하는지 확인해보세요.(완료)
+// (task 4) BST에 10개 이상의 노드를 넣어보고, root에서부터 inorder traversal을 수행한 결과를 출력해보세요.(완료)
 public class BSTTest {
     public static void main(String[] args){
         Dictionary<Integer, String> bst = new BST<>();
@@ -9,12 +9,12 @@ public class BSTTest {
         bst.insert(5, "c");
         bst.insert(2, "d");
         bst.insert(1, "f");
-        bst.insert(6, "g");
+        bst.insert(12, "l");
         bst.insert(7, "h");
         bst.insert(8, "i");
-        bst.insert(9, "j");
+        bst.insert(6, "g");
         bst.insert(10, "k");
-        bst.insert(12, "l");
+        bst.insert(9, "j");
         bst.insert(13, "m");
         
         bst.remove(3);

@@ -1,4 +1,4 @@
-// (task 1) dictionary interface를 BST로 구현하세요.
+// (task 1) dictionary interface를 BST로 구현하세요.(완료)
 // (task 2) BST를 구현할 때 leaf 노드는 null 포인터가 없는 LNode를 사용하도록 실습 코드를 수정해보세요.
 public class BST<K extends Comparable, E> implements Dictionary<K, E> {    
     // Bin node와 연결
