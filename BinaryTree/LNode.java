@@ -26,4 +26,8 @@ public class LNode<E> implements BinNode<E> {
     public boolean isLeaf(){
         return true;
     };
+    
+    public String toString(){
+        return "LNode "+data;
+    };
 }

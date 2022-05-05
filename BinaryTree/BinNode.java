@@ -6,5 +6,5 @@ public interface BinNode<E> {
     public BinNode<E> right();
     public void setLeft(BinNode<E> n);
     public void setRight(BinNode<E> n);
-    public boolean isLeaf();    
+    public boolean isLeaf();
 }
