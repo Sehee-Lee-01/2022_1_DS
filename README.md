@@ -1,2 +1,2 @@
-# 2022_1_Data_Structure
+# 2022_Data_Structure
 To study data structure  of 1st semester
