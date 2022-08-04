@@ -11,6 +11,8 @@
         "utility": "cpp",
         "iostream": "cpp",
         "algorithm": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "queue": "cpp",
+        "string_view": "cpp"
     }
 }
